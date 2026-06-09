@@ -1,0 +1,122 @@
+/* ================= Vision Mission Section ================= */
+
+.visionMissionSection{
+  padding:90px 20px;
+  background:#f5f7fb;
+}
+
+.visionMissionContainer{
+  max-width:1200px;
+  margin:auto;
+}
+
+.visionMissionHeader{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.visionMissionHeader h2{
+  font-size:38px;
+  font-weight:700;
+  color:#0d2b6b;
+  margin-bottom:15px;
+}
+
+.visionMissionHeader p{
+  font-size:17px;
+  color:#555;
+  max-width:750px;
+  margin:auto;
+  line-height:1.6;
+}
+
+/* Grid */
+
+.visionMissionGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:40px;
+}
+
+/* Cards */
+
+.visionCard,
+.missionCard{
+  background:white;
+  padding:40px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:all 0.3s ease;
+}
+
+.visionCard:hover,
+.missionCard:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Icon */
+
+.vmIcon{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+/* Titles */
+
+.visionCard h3,
+.missionCard h3{
+  font-size:24px;
+  margin-bottom:15px;
+  color:#0d47a1;
+}
+
+/* Paragraph */
+
+.visionCard p,
+.missionCard p{
+  font-size:15px;
+  color:#555;
+  line-height:1.7;
+  margin-bottom:12px;
+}
+
+/* Mission list */
+
+.missionCard ul{
+  padding-left:18px;
+}
+
+.missionCard li{
+  margin-bottom:10px;
+  font-size:15px;
+  color:#444;
+  line-height:1.6;
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width:768px){
+
+  .visionMissionHeader h2{
+    font-size:30px;
+  }
+
+  .visionCard,
+  .missionCard{
+    padding:30px;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .visionMissionSection{
+    padding:60px 15px;
+  }
+
+  .visionMissionHeader p{
+    font-size:15px;
+  }
+
+}

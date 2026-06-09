@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App global tweaks */
+:root {
+	--brand: #410445;
+}
+
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply text-gray-800;
+}
+
+.container-responsive {
+	@apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+
+/* Blog Content Styles */
+.blog-content {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #222222;
+}
+
+.blog-content .drop-cap {
+  font-size: 4.5em;
+  font-weight: 600;
+  float: left;
+  line-height: 0.8;
+  margin-right: 12px;
+  margin-top: 0.1em;
+  margin-bottom: -0.1em;
+  font-family: 'Georgia', 'Playfair Display', serif;
+  color: #222222;
+}
+
+.blog-content h1 {
+  font-size: 2.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Georgia', 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.blog-content h2 {
+  font-size: 1.8em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Georgia', 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+.blog-content h3 {
+  font-size: 1.4em;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  font-family: 'Georgia', 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+.blog-content p {
+  margin-bottom: 1.5em;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2em 0;
+}
+
+.blog-content ul, 
+.blog-content ol {
+  margin: 1.5em 0;
+  padding-left: 2em;
+}
+
+.blog-content li {
+  margin-bottom: 0.5em;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid #222222;
+  padding-left: 1.5em;
+  margin: 2em 0;
+  font-style: italic;
+  color: #555555;
+  font-size: 1.1em;
+}
+
+.blog-content hr {
+  margin: 2em 0;
+  border: none;
+  border-top: 1px solid #eaeaea;
+}
+
+.blog-content .highlight-box {
+  background-color: #fef9e6;
+  padding: 1.5em;
+  border-radius: 8px;
+  margin: 2em 0;
+  border-left: 4px solid #f5a623;
+}
+
+.blog-content strong {
+  font-weight: 600;
+  color: #000000;
+}
+
+.blog-content a {
+  color: #222222;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.blog-content a:hover {
+  color: #555555;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .blog-content {
+    font-size: 16px;
+  }
+  
+  .blog-content h1 {
+    font-size: 2em;
+  }
+  
+  .blog-content h2 {
+    font-size: 1.5em;
+  }
+  
+  .blog-content h3 {
+    font-size: 1.2em;
+  }
+  
+  .blog-content blockquote {
+    font-size: 1em;
+  }
+}

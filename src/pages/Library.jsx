@@ -9,7 +9,16 @@ const menuItems = [
   { id: 'Resources', icon: '📰' },
   { id: 'Links and Contact', icon: '🔗' }
 ];
-
+const newspapers = [
+  { name: "Sakal", url: "https://www.esakal.com" },
+  { name: "Sakal Times", url: "https://sakaaltimes.com" },
+  { name: "Indian Express", url: "https://indianexpress.com" },
+  { name: "Loksatta", url: "https://www.loksatta.com" },
+  { name: "Times of India", url: "https://timesofindia.indiatimes.com" },
+  { name: "Maharashtra Times", url: "https://maharashtratimes.com" },
+  { name: "Pudhari", url: "https://www.pudhari.news" },
+  { name: "Lokmat", url: "https://www.lokmat.com" },
+];
 const libraryContent = {
   About: (
     <div className="space-y-6">
@@ -188,24 +197,26 @@ const libraryContent = {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {[
-          "Sakal", "Sakal Times", "Indian Express", "Loksatta", 
-          "Times of India", "Maharashtra Times", "Pudhari", "Lokmat"
-        ].map((paper, index) => (
-          <motion.div
+        {newspapers.map((paper, index) => (
+          <motion.a
             key={index}
+            href={paper.url}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.1 }}
-            className="p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md hover:border-amber-200 transition-all group"
+            className="p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md hover:border-amber-200 transition-all group cursor-pointer"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center group-hover:bg-amber-200 transition-colors">
                 <span className="text-amber-600">📰</span>
               </div>
-              <span className="font-medium text-gray-700">{paper}</span>
+              <span className="font-medium text-gray-700">
+                {paper.name}
+              </span>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </div>
@@ -305,11 +316,10 @@ export default function Library() {
                   >
                     <button
                       onClick={() => setActive(item.id)}
-                      className={`w-full text-left p-4 rounded-xl transition-all duration-300 flex items-center gap-3 ${
-                        active === item.id
+                      className={`w-full text-left p-4 rounded-xl transition-all duration-300 flex items-center gap-3 ${active === item.id
                           ? 'bg-blue-50 text-blue-700 shadow-md border border-blue-200'
                           : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800 hover:shadow-sm'
-                      }`}
+                        }`}
                     >
                       <span className="text-xl">{item.icon}</span>
                       <span className="font-medium">{item.id}</span>

@@ -58,7 +58,7 @@ export default function UdanBook() {
 
               <a
                 href={book.pdf}
-                download
+                download={`Udan ${id}.pdf`}
                 className="inline-flex items-center gap-2 bg-blue-800 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-900 transition"
               >
                 <Download />

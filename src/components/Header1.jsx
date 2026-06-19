@@ -9,6 +9,17 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  const udanMenu = [
+    { to: "/udan/1", label: "Udan 1" },
+    { to: "/udan/2", label: "Udan 2" },
+    { to: "/udan/3", label: "Udan 3" },
+    { to: "/udan/4", label: "Udan 4" },
+    { to: "/udan/5", label: "Udan 5" },
+    { to: "/udan/6", label: "Udan 6" },
+    { to: "/udan/7", label: "Udan 7" },
+    { to: "/udan/8", label: "Udan 8" },
+  ];
+
   // Scroll effect + progress
   useEffect(() => {
 
@@ -45,20 +56,6 @@ export default function Header() {
     },
 
     { to: "/gallery", label: "Gallery" },
-
-    {
-      label: "Udan Initiatives",
-      sub: [
-        { to: "/udan/1", label: "Udan 1: Legal Aid Clinic" },
-        { to: "/udan/2", label: "Udan 2: Moot Court Society" },
-        { to: "/udan/3", label: "Udan 3: Research Center" },
-        { to: "/udan/4", label: "Udan 4: Placement Cell" },
-        { to: "/udan/5", label: "Udan 5: Student Council" },
-        { to: "/udan/6", label: "Udan 6: Cultural Committee" },
-        { to: "/udan/7", label: "Udan 7: Sports Committee" },
-        { to: "/udan/8", label: "Udan 8: Alumni Network" },
-      ],
-    },
 
     { to: "/announcement", label: "Announcements" },
 
@@ -133,9 +130,8 @@ export default function Header() {
       {/* ================= MAIN HEADER ================= */}
 
       <div
-        className={`bg-white shadow-lg transition-all duration-300 ${
-          scrolled ? "py-1 shadow-xl" : "py-2 sm:py-2"
-        }`}
+        className={`bg-white shadow-lg transition-all duration-300 ${scrolled ? "py-1 shadow-xl" : "py-2 sm:py-2"
+          }`}
       >
 
         <div className="max-w-7xl mx-auto px-4">
@@ -146,15 +142,15 @@ export default function Header() {
 
             <Link to="/" className="flex items-center gap-2 sm:gap-3">
 
-              <div className="relative">
+              
 
                 <img
                   src="/assets/images/logo/logo1.png"
                   alt="logo"
-                  className="h-10 sm:h-12 md:h-14 object-contain"
+                  className="h-10 sm:h-12 md:h-14 object-contain rounded-lg"
                 />
 
-              </div>
+             
 
             </Link>
 
@@ -197,9 +193,38 @@ export default function Header() {
             </div>
 
 
-            {/* APPLY BUTTON */}
+            {/* UDAN AND APPLY BUTTONS */}
 
-            <div className="hidden md:block">
+            <div className="hidden md:flex items-center gap-2">
+
+              <div
+                className="relative"
+                onMouseEnter={() => setDropdown("Udan")}
+                onMouseLeave={() => setDropdown(null)}
+              >
+                <button
+                  className="border border-amber-600 text-amber-700 px-3 lg:px-5 py-1.5 lg:py-2 rounded-lg font-semibold hover:bg-amber-50 transition shadow-sm text-sm flex items-center gap-1"
+                >
+                  Udan
+                  <ChevronDown className="h-3.5 w-3.5" />
+                </button>
+
+                {dropdown === "Udan" && (
+                  <div className="absolute right-0 top-full pt-1 w-48 z-50">
+                    <div className="bg-white text-gray-800 shadow-xl rounded-md overflow-hidden">
+                      {udanMenu.map((item) => (
+                        <NavLink
+                          key={item.to}
+                          to={item.to}
+                          className="block px-4 py-2 text-sm hover:bg-amber-50"
+                        >
+                          {item.label}
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
 
               <Link
                 to="/admissions"
@@ -255,11 +280,10 @@ export default function Header() {
                   {/* dropdown */}
 
                   <div
-                    className={`absolute left-0 top-full min-w-[200px] bg-white shadow-xl rounded-b-lg transition ${
-                      dropdown === item.label
-                        ? "opacity-100 visible"
-                        : "opacity-0 invisible"
-                    }`}
+                    className={`absolute left-0 top-full min-w-[200px] bg-white shadow-xl rounded-b-lg transition ${dropdown === item.label
+                      ? "opacity-100 visible"
+                      : "opacity-0 invisible"
+                      }`}
                     onMouseEnter={() => setDropdown(item.label)}
                     onMouseLeave={() => setDropdown(null)}
                   >

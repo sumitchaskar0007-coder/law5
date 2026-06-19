@@ -56,7 +56,7 @@ export default function Contact() {
           <div className="bg-white shadow rounded-xl p-6">
             <h3 className="text-xl font-semibold mb-3">📍 Our Address</h3>
             <p className="text-gray-600">
-              Jadhavar Educational Campus,<br />
+             
               Narhe,Pune<br />
               Maharashtra, India
             </p>
@@ -77,7 +77,7 @@ export default function Contact() {
               className="w-full h-64 border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30278.13710415687!2d73.80464127947376!3d18.44887904881133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2953f2263c307%3A0x79aeb881437adebd!2sNarhe%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1771332527922!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30278.13710415687!2d73.80464127947376!3d18.44887904881133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2953f2263c307%3A0x79aeb881437adebd!2sNarhe%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1781859970758!5m2!1sen!2sin" 
             ></iframe>
           </div>
 

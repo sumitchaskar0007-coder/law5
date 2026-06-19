@@ -29,6 +29,7 @@ import MootCourt from './pages/MootCourt.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Facilities from './pages/Facilities.jsx';
+import Udan from './pages/Udan.jsx';
 import UdanBook from "./pages/UdanBook";
 
 // Admin pages
@@ -69,6 +70,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/cells" element={<Cells />} />
             <Route path="/facilities" element={<Facilities />} />
+            <Route path="/udan" element={<Udan />} />
             <Route path="/udan/:id" element={<UdanBook />} />
             
             {/* FIXED: Blog routes - using slug instead of id */}

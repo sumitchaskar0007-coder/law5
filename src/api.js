@@ -14,7 +14,8 @@ const API = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 70000,
+  // Video uploads can take several minutes on slower connections.
+  timeout: 0,
 });
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +126,24 @@ export const galleryAPI = {
     }),
   delete: (id) => API.delete(`/gallery/${id}`),
   getAllAdmin: () => API.get('/gallery/admin/all'),
+};
+
+/* VIDEO API */
+export const videoAPI = {
+  getAll: () => API.get('/videos'),
+  getById: (id) => API.get(`/videos/${id}`),
+  getAllAdmin: () => API.get('/videos/admin/all'),
+  create: (formData, onUploadProgress) =>
+    API.post('/videos', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      onUploadProgress,
+    }),
+  update: (id, formData, onUploadProgress) =>
+    API.put(`/videos/${id}`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      onUploadProgress,
+    }),
+  delete: (id) => API.delete(`/videos/${id}`),
 };
 
 /*

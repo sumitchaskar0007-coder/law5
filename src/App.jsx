@@ -21,6 +21,7 @@ import About from './pages/About.jsx';
 import Admission from './pages/Admission.jsx';
 import Academics from './pages/Academics.jsx';
 import Gallery from './pages/Gallery.jsx';
+import Videos from './pages/Videos.jsx';
 import Announcement from './pages/Announcement.jsx';
 import Career from './pages/Career.jsx';
 import LegalAid from './pages/LegalAid.jsx';
@@ -36,6 +37,7 @@ import UdanBook from "./pages/UdanBook";
 import AdminLogin from './pages/admin/AdminLogin.jsx';
 import AdminDashboard from './pages/admin/AdminDashboard.jsx';
 import GalleryAdmin from './pages/admin/GalleryAdmin.jsx';
+import VideoAdmin from './pages/admin/VideoAdmin.jsx';
 import AnnouncementAdmin from './pages/admin/AnnouncementAdmin.jsx';
 import CareerAdmin from './pages/admin/CareerAdmin.jsx';
 import Cells from './pages/Cells.jsx';
@@ -62,6 +64,7 @@ export default function App() {
             <Route path="/admissions" element={<Admission />} />
             <Route path="/academics" element={<Academics />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/videos" element={<Videos />} />
             <Route path="/announcement" element={<Announcement />} />
             <Route path="/careers" element={<Career />} />
             <Route path="/legalaid" element={<LegalAid />} />
@@ -97,6 +100,15 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <GalleryAdmin />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/videos"
+              element={
+                <ProtectedRoute>
+                  <VideoAdmin />
                 </ProtectedRoute>
               }
             />

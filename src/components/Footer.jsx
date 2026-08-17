@@ -79,6 +79,9 @@ export default function Footer() {
               <Link to="/gallery" className="hover:text-primary transition">
                 Gallery
               </Link>
+              <Link to="/videos" className="hover:text-primary transition">
+                Videos
+              </Link>
             </li>
           </ul>
         </div>

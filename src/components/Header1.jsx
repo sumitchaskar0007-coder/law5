@@ -58,6 +58,8 @@ export default function Header() {
 
     { to: "/gallery", label: "Gallery" },
 
+    { to: "/videos", label: "Videos" },
+
     { to: "/announcement", label: "Announcements" },
 
     {

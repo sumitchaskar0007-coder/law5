@@ -192,6 +192,14 @@ const AdminDashboard = () => {
                 <p className="text-gray-600">Manage gallery images and categories</p>
               </Link>
 
+              <Link
+                to="/admin/videos"
+                className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
+              >
+                <h2 className="text-xl font-bold mb-4">Video Management</h2>
+                <p className="text-gray-600">Add, edit and delete uploaded or linked videos</p>
+              </Link>
+
               {/* Announcements */}
               <Link
                 to="/admin/announcements"

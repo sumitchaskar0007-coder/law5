@@ -77,7 +77,7 @@ export default function Academics() {
         <title>Academics - 5-Year Integrated Law Program | Jadhavar College of Law</title>
         <meta
           name="description"
-          content="Explore the academic framework of Jadhavar College of Law's 5-Year Integrated BA-LLB, BBA-LLB & BCom-LLB programs. Comprehensive curriculum, practical training, and professional development."
+          content="Explore the academic framework of Jadhavar College of Law's 5-Year Integrated BA-LLB program. Comprehensive curriculum, practical training, and professional development."
         />
         <meta
           name="keywords"
@@ -157,7 +157,7 @@ export default function Academics() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-3">Available Programs</h3>
                     <div className="grid grid-cols-3 gap-4">
-                      {["BA-LLB", "BBA-LLB", "BCom-LLB"].map((program, index) => (
+                      {["BA-LLB"].map((program, index) => (
                         <div key={index} className="text-center p-4 bg-white rounded-lg border border-gray-200">
                           <div className="text-lg font-bold text-blue-700">{program}</div>
                           <div className="text-sm text-gray-500">5-Year Integrated</div>
@@ -326,43 +326,7 @@ export default function Academics() {
               </div>
             </div>
 
-            {/* BBA-LLB */}
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-green-50 rounded-lg">
-                  <Briefcase className="h-6 w-6 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900">B.B.A. LL.B</h3>
-              </div>
-              <p className="text-gray-600 mb-4">Business administration and law for corporate legal careers.</p>
-              <div className="space-y-2">
-                {["Corporate Law", "Taxation", "IPR", "Banking & Finance"].map((spec, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm">
-                    <ArrowRight className="h-4 w-4 text-green-600" />
-                    <span className="text-gray-700">{spec}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* BCom-LLB */}
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-purple-50 rounded-lg">
-                  <BarChart className="h-6 w-6 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900">B.Com LL.B</h3>
-              </div>
-              <p className="text-gray-600 mb-4">Commerce and law integration for financial and corporate sectors.</p>
-              <div className="space-y-2">
-                {["Corporate Governance", "Insolvency Law", "Securities Law", "Competition Law"].map((spec, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm">
-                    <ArrowRight className="h-4 w-4 text-purple-600" />
-                    <span className="text-gray-700">{spec}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+       
           </div>
         </div>
       </section>

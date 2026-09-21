@@ -53,6 +53,7 @@ export default function Header() {
       sub: [
         { to: "/apply", label: "Apply Now" },
         { to: "/academics", label: "Academic Programs" },
+        { href: "/assets/pdf/merit.pdf", label: "Merit List" },
       ],
     },
 
@@ -291,13 +292,25 @@ export default function Header() {
                     onMouseLeave={() => setDropdown(null)}
                   >
                     {item.sub.map((s) => (
-                      <NavLink
-                        key={s.to}
-                        to={s.to}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        {s.label}
-                      </NavLink>
+                      s.href ? (
+                        <a
+                          key={s.href}
+                          href={s.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          {s.label}
+                        </a>
+                      ) : (
+                        <NavLink
+                          key={s.to}
+                          to={s.to}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          {s.label}
+                        </NavLink>
+                      )
                     ))}
                   </div>
 
@@ -334,14 +347,27 @@ export default function Header() {
                         </summary>
 
                         {item.sub.map((s) => (
-                          <NavLink
-                            key={s.to}
-                            to={s.to}
-                            onClick={() => setOpen(false)}
-                            className="block px-6 py-2 text-white hover:bg-gray-800 text-sm"
-                          >
-                            {s.label}
-                          </NavLink>
+                          s.href ? (
+                            <a
+                              key={s.href}
+                              href={s.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setOpen(false)}
+                              className="block px-6 py-2 text-white hover:bg-gray-800 text-sm"
+                            >
+                              {s.label}
+                            </a>
+                          ) : (
+                            <NavLink
+                              key={s.to}
+                              to={s.to}
+                              onClick={() => setOpen(false)}
+                              className="block px-6 py-2 text-white hover:bg-gray-800 text-sm"
+                            >
+                              {s.label}
+                            </NavLink>
+                          )
                         ))}
 
                       </details>

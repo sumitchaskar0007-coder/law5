@@ -226,6 +226,14 @@ const AdminDashboard = () => {
                 <h2 className="text-xl font-bold mb-4">Blog Management</h2>
                 <p className="text-gray-600">Create, edit and publish blog posts</p>
               </Link>
+
+              <Link
+                to="/admin/merit-lists"
+                className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
+              >
+                <h2 className="text-xl font-bold mb-4">Merit List Management</h2>
+                <p className="text-gray-600">Upload, rename and remove merit list PDFs</p>
+              </Link>
             </div>
 
             {/* QUICK STATS */}

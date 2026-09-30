@@ -53,7 +53,7 @@ export default function Header() {
       sub: [
         { to: "/apply", label: "Apply Now" },
         { to: "/academics", label: "Academic Programs" },
-        { href: "/assets/pdf/merit.pdf", label: "Merit List" },
+        { to: "/merit-list", label: "Merit List" },
       ],
     },
 

@@ -198,6 +198,23 @@ export const contactAPI = {
 
 /*
 |--------------------------------------------------------------------------
+| MERIT LIST API
+|--------------------------------------------------------------------------
+*/
+export const meritListAPI = {
+  getAll: () => API.get('/merit-lists'),
+  pdfUrl: (id) => `${BASE_URL.replace(/\/$/, '')}/merit-lists/${id}/pdf`,
+  create: (formData) => API.post('/merit-lists', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  }),
+  update: (id, formData) => API.put(`/merit-lists/${id}`, formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  }),
+  delete: (id) => API.delete(`/merit-lists/${id}`),
+};
+
+/*
+|--------------------------------------------------------------------------
 | HEALTH CHECK
 |--------------------------------------------------------------------------
 */

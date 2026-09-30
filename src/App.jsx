@@ -32,6 +32,7 @@ import NotFound from './pages/NotFound.jsx';
 import Facilities from './pages/Facilities.jsx';
 import Udan from './pages/Udan.jsx';
 import UdanBook from "./pages/UdanBook";
+import MeritList from './pages/MeritList.jsx';
 
 // Admin pages
 import AdminLogin from './pages/admin/AdminLogin.jsx';
@@ -40,6 +41,7 @@ import GalleryAdmin from './pages/admin/GalleryAdmin.jsx';
 import VideoAdmin from './pages/admin/VideoAdmin.jsx';
 import AnnouncementAdmin from './pages/admin/AnnouncementAdmin.jsx';
 import CareerAdmin from './pages/admin/CareerAdmin.jsx';
+import MeritListAdmin from './pages/admin/MeritListAdmin.jsx';
 import Cells from './pages/Cells.jsx';
 import ApplicationForm from './components/ApplicationForm1.jsx';
 import { ImageOff } from 'lucide-react';
@@ -75,6 +77,7 @@ export default function App() {
             <Route path="/facilities" element={<Facilities />} />
             <Route path="/udan" element={<Udan />} />
             <Route path="/udan/:id" element={<UdanBook />} />
+            <Route path="/merit-list" element={<MeritList />} />
             
             {/* FIXED: Blog routes - using slug instead of id */}
             <Route path="/blog" element={<Blog />} />
@@ -127,6 +130,15 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <CareerAdmin />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/merit-lists"
+              element={
+                <ProtectedRoute>
+                  <MeritListAdmin />
                 </ProtectedRoute>
               }
             />

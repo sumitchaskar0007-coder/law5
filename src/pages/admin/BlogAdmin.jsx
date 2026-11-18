@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { blogAPI } from '../../api';
+import { blogAPI, apiAssetUrl } from '../../api';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RichTextEditor from '../../components/RichTextEditor';
@@ -24,9 +24,7 @@ export default function BlogAdmin() {
   // Helper function to get full image URL
   const getImageUrl = (imagePath) => {
     if (!imagePath) return '';
-    // Get base URL without /api suffix for static files
-    const baseUrl = import.meta.env.VITE_API_URL?.replace('/api', '')?.replace(/\/$/, '') || 'http://localhost:5000';
-    return `${baseUrl}${imagePath}`;
+    return apiAssetUrl(imagePath);
   };
 
   /* ================= LOAD BLOGS ================= */

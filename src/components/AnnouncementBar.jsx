@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { announcementAPI } from "../api";
 import "./AnnouncementBar.css";
 
 export default function AnnouncementBar() {
   const [ann, setAnn] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/announcements/")
-      .then(res => setAnn(res.data))
+    announcementAPI.getAll()
+      .then(res => setAnn(Array.isArray(res.data) ? res.data : []))
       .catch(err => console.log(err));
   }, []);
 

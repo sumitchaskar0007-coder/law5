@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { blogAPI } from '../api';
+import { blogAPI, apiAssetUrl } from '../api';
 import { Link } from 'react-router-dom';
 
 export default function Blog() {
@@ -111,7 +111,7 @@ export default function Blog() {
                 {blog.coverImage && (
                   <div className="overflow-hidden h-56">
                     <img
-                      src={`https://api.shardulraojadhavarcollegeoflaw.com${blog.coverImage}`}
+                      src={apiAssetUrl(blog.coverImage)}
                       alt={blog.title || 'Blog post'}
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                       onError={(e) => {

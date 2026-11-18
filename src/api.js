@@ -6,7 +6,19 @@ import axios from 'axios';
 |-------------------------------------------------------------------------- 
 */
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+// Keep the API host in one place. VITE_API_URL can override this per
+// deployment; the default is the production backend used by blog media.
+export const BASE_URL = (
+  import.meta.env.VITE_API_URL ||
+  'https://api.shardulraojadhavarcollegeoflaw.com/api'
+).replace(/\/+$/, '');
+export const API_ORIGIN = BASE_URL.replace(/\/api$/, '');
+
+export const apiAssetUrl = (path) => {
+  if (!path) return '';
+  if (/^https?:\/\//i.test(path)) return path;
+  return `${API_ORIGIN}${path.startsWith('/') ? '' : '/'}${path}`;
+};
 
 // Create axios instance
 const API = axios.create({
@@ -203,7 +215,7 @@ export const contactAPI = {
 */
 export const meritListAPI = {
   getAll: () => API.get('/merit-lists'),
-  pdfUrl: (id) => `${BASE_URL.replace(/\/$/, '')}/merit-lists/${id}/pdf`,
+  pdfUrl: (id) => `${BASE_URL}/merit-lists/${id}/pdf`,
   create: (formData) => API.post('/merit-lists', formData, {
     headers: { 'Content-Type': 'multipart/form-data' },
   }),
@@ -218,6 +230,8 @@ export const meritListAPI = {
 | HEALTH CHECK
 |--------------------------------------------------------------------------
 */
-export const checkAPIHealth = () => API.get('/test');
+// The backend has no /test route. HEAD checks a known public route without
+// downloading the full blogs response.
+export const checkAPIHealth = () => API.head('/blogs');
 
 export default API;

@@ -12,6 +12,7 @@ const AnnouncementAdmin = () => {
     content: '',
     type: 'general',
     isActive: true,
+    postedDate: new Date().toISOString().split('T')[0],
     startDate: new Date().toISOString().split('T')[0],
     endDate: ''
   });
@@ -44,6 +45,8 @@ const AnnouncementAdmin = () => {
     
     try {
       const data = { ...formData };
+      data.createdAt = new Date(`${data.postedDate}T00:00:00.000Z`).toISOString();
+      delete data.postedDate;
       if (!data.endDate) delete data.endDate;
       
       if (editingAnnouncement) {
@@ -67,6 +70,9 @@ const AnnouncementAdmin = () => {
       content: announcement.content,
       type: announcement.type,
       isActive: announcement.isActive,
+      postedDate: announcement.createdAt
+        ? new Date(announcement.createdAt).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0],
       startDate: new Date(announcement.startDate).toISOString().split('T')[0],
       endDate: announcement.endDate 
         ? new Date(announcement.endDate).toISOString().split('T')[0]
@@ -92,6 +98,7 @@ const AnnouncementAdmin = () => {
       content: '',
       type: 'general',
       isActive: true,
+      postedDate: new Date().toISOString().split('T')[0],
       startDate: new Date().toISOString().split('T')[0],
       endDate: ''
     });
@@ -158,6 +165,9 @@ const AnnouncementAdmin = () => {
                     Start Date
                   </th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Posted Date
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
@@ -188,6 +198,11 @@ const AnnouncementAdmin = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {new Date(announcement.startDate).toLocaleDateString()}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {announcement.createdAt
+                        ? new Date(announcement.createdAt).toLocaleDateString()
+                        : '—'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <button
@@ -262,6 +277,13 @@ const AnnouncementAdmin = () => {
                       <div className="text-sm text-gray-600">
                         <span className="font-medium">Start Date:</span>{' '}
                         {new Date(announcement.startDate).toLocaleDateString()}
+                      </div>
+
+                      <div className="text-sm text-gray-600">
+                        <span className="font-medium">Posted Date:</span>{' '}
+                        {announcement.createdAt
+                          ? new Date(announcement.createdAt).toLocaleDateString()
+                          : '—'}
                       </div>
                       
                       {announcement.endDate && (
@@ -366,7 +388,21 @@ const AnnouncementAdmin = () => {
                 </div>
 
                 {/* Dates */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div>
+                    <label htmlFor="postedDate" className="block text-sm font-medium text-gray-700 mb-1">
+                      Posted Date <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="date"
+                      id="postedDate"
+                      name="postedDate"
+                      required
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      value={formData.postedDate}
+                      onChange={handleInputChange}
+                    />
+                  </div>
                   <div>
                     <label htmlFor="startDate" className="block text-sm font-medium text-gray-700 mb-1">
                       Start Date <span className="text-red-500">*</span>
